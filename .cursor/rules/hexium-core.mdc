@@ -1,0 +1,9 @@
+---
+description: HEXIUM Clicker — stack, styling, and workflow constraints
+alwaysApply: true
+---
+
+You are working on HEXIUM Telegram Mini App game.
+Stack: React + Vite + TypeScript. Never use Tailwind.
+Use CSS modules. Design: dark sci-fi, bg #0a0f1e, accent #00d4ff.
+Always read existing files before modifying. Never add new dependencies.
