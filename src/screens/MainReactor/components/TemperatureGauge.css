@@ -1,0 +1,92 @@
+/* ═══ TemperatureGauge ═══ */
+
+.mr-temp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mr-temp-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mr-temp-icon {
+  font-size: 15px;
+}
+
+.mr-temp-text {
+  color: #8ea7c7;
+}
+
+.mr-temp-warn {
+  font-size: 10px;
+  font-weight: 800;
+  color: #ff4444;
+  letter-spacing: 0.1em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(255, 40, 40, 0.15);
+  animation: mr-warn-blink 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes mr-warn-blink {
+  to { opacity: 0.5; }
+}
+
+.mr-temp-track {
+  position: relative;
+  height: 8px;
+  border-radius: 6px;
+  background: rgba(0, 240, 255, 0.06);
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.mr-temp-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.2s ease, background 0.4s;
+}
+
+/* Temperature color states */
+.mr-temp-blue {
+  background: linear-gradient(90deg, #0088cc, #00c8ff);
+  box-shadow: 0 0 6px rgba(0, 200, 255, 0.3);
+}
+
+.mr-temp-yellow {
+  background: linear-gradient(90deg, #d4a800, #ffcc00);
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.3);
+}
+
+.mr-temp-orange {
+  background: linear-gradient(90deg, #d46600, #ff8c00);
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.mr-temp-red {
+  background: linear-gradient(90deg, #cc2200, #ff4433);
+  box-shadow: 0 0 10px rgba(255, 68, 51, 0.5);
+}
+
+.mr-temp-overheat-fill {
+  animation: mr-overheat-fill-pulse 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes mr-overheat-fill-pulse {
+  to { opacity: 0.6; }
+}
+
+/* Danger zone marker at 80% */
+.mr-temp-danger-marker {
+  position: absolute;
+  left: 80%;
+  top: -1px;
+  bottom: -1px;
+  width: 2px;
+  background: rgba(255, 68, 51, 0.5);
+}

@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════════════════
+   HEXIUM App Shell — Global UI
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Design tokens ── */
+:root {
+  --hex-bg: #050713;
+  --hex-panel: rgba(8, 13, 31, 0.88);
+  --hex-panel-2: rgba(12, 20, 42, 0.92);
+  --hex-cyan: #00f0ff;
+  --hex-blue: #2665fd;
+  --hex-purple: #c026ff;
+  --hex-gold: #ffd166;
+  --hex-text: #eaf4ff;
+  --hex-muted: #8ea7c7;
+  --hx-bottom-nav-height: 64px;
+  --hx-bottom-safe-space: calc(var(--hx-bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--hex-bg);
+  color: var(--hex-text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Shell (mobile-first phone frame) ── */
+.hx-app-shell {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+  height: 100dvh;
+  padding: 14px;
+  padding-bottom: calc(var(--hx-bottom-safe-space) + 24px);
+  overflow: hidden;
+}
+
+/* Desktop: centered phone frame with glow */
+@media (min-width: 520px) {
+  .hx-app-shell {
+    border-left: 1px solid rgba(0, 240, 255, 0.12);
+    border-right: 1px solid rgba(0, 240, 255, 0.12);
+    box-shadow:
+      0 0 0 1px rgba(0, 240, 255, 0.04),
+      0 30px 90px rgba(0, 0, 0, 0.6),
+      0 0 70px rgba(0, 240, 255, 0.05);
+  }
+}
+
+/* ── Layout ── */
+.hx-main-layout {
+  display: block;
+  margin-top: 14px;
+  max-height: calc(100dvh - var(--hx-bottom-safe-space) - 105px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 16px;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.hx-main-layout::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Screen area — subtle transition ── */
+.hx-screen-area {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  padding-bottom: calc(var(--hx-bottom-safe-space) + 16px);
+  animation: hx-screen-in 0.25s ease-out;
+}
+
+@keyframes hx-screen-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Content area ── */
+.hx-content {
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 28px;
+  background: var(--hex-panel-2);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hx-content::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 38, 255, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+/* ── Dev test actions ── */
+.hx-dev-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.hx-dev-actions button {
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 15px;
+  padding: 11px 12px;
+  background: rgba(5, 10, 24, 0.82);
+  color: var(--hex-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.hx-dev-actions button:hover {
+  border-color: var(--hex-cyan);
+  box-shadow: 0 0 22px rgba(0, 240, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ── Global button styles ── */
+button {
+  font-family: inherit;
+}
+
+/* ── Small phones ── */
+@media (max-width: 420px) {
+  :root { --hx-bottom-nav-height: 64px; }
+  .hx-app-shell { padding: 10px; padding-bottom: calc(var(--hx-bottom-safe-space) + 24px); }
+  .hx-content { padding: 12px; border-radius: 20px; }
+}

@@ -1,0 +1,283 @@
+.tk-screen {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding: 18px 18px 96px;
+  color: #eaf7ff;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(192, 38, 255, 0.2), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(0, 240, 255, 0.18), transparent 28%),
+    linear-gradient(180deg, #050711 0%, #090d1c 54%, #03050b 100%);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.tk-bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 38, 255, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle, black, transparent 76%);
+}
+
+.tk-hud {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.tk-kicker {
+  margin: 0 0 4px;
+  color: #00f0ff;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tk-hud h1,
+.tk-banner h2,
+.tk-card h3 {
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.tk-subtitle,
+.tk-banner p,
+.tk-card p {
+  color: #8ea7c7;
+  line-height: 1.45;
+}
+
+.tk-subtitle {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.tk-resources {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tk-pill {
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(10, 20, 40, 0.9), rgba(4, 8, 18, 0.86));
+  font-size: 14px;
+}
+
+.tk-pill b {
+  color: #00f0ff;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  margin-right: 4px;
+}
+
+.tk-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(11, 18, 38, 0.9), rgba(5, 8, 18, 0.92));
+  box-shadow: inset 0 0 28px rgba(0, 240, 255, 0.04), 0 18px 60px rgba(0, 0, 0, 0.28);
+}
+
+.tk-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid rgba(192, 38, 255, 0.35);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(192, 38, 255, 0.14), rgba(0, 240, 255, 0.08));
+}
+
+.tk-badge {
+  display: grid;
+  place-items: center;
+  min-width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 240, 255, 0.48);
+  color: #00f0ff;
+  font-weight: 900;
+  box-shadow: 0 0 26px rgba(0, 240, 255, 0.18);
+}
+
+.tk-tabs { display: flex; gap: 8px; }
+.tk-tab {
+  flex: 1; padding: 10px 14px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(10, 20, 40, 0.6);
+  color: #7fa2c4; font-size: 12px; font-weight: 800;
+  cursor: pointer; transition: all 0.2s;
+  text-align: center;
+}
+.tk-tab.active {
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #eaf6ff;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(192, 38, 255, 0.1));
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.1);
+}
+.tk-tab:hover:not(.active) { border-color: rgba(0, 240, 255, 0.35); color: #b0d0ee; }
+
+.tk-list {
+  display: grid;
+  gap: 12px;
+}
+
+.tk-card {
+  padding: 14px;
+  border: 1px solid rgba(0, 240, 255, 0.16);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(5, 12, 27, 0.94), rgba(3, 7, 16, 0.96));
+  box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.04);
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.tk-card.is-ready {
+  border-color: rgba(255, 210, 80, 0.55);
+  box-shadow: 0 0 26px rgba(255, 210, 80, 0.1), inset 0 0 22px rgba(255, 210, 80, 0.04);
+}
+
+.tk-card.is-claimed {
+  opacity: 0.72;
+}
+
+.tk-card-top,
+.tk-progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tk-card-tag {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: #00f0ff;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tk-reward {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 999px;
+  color: #f4fbff;
+  background: rgba(0, 240, 255, 0.08);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.tk-card p {
+  margin: 9px 0 12px;
+  font-size: 12px;
+}
+
+.tk-progress-row {
+  margin-bottom: 8px;
+  color: #dcecff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tk-progress-bar {
+  height: 9px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.tk-progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00f0ff, #c026ff);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.28);
+  transition: width 0.25s ease;
+}
+
+.tk-claim,
+.tk-mini-btn {
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 999px;
+  color: #f5fbff;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(192, 38, 255, 0.22));
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.tk-claim {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px 14px;
+  letter-spacing: 0.08em;
+}
+
+.tk-mini-btn {
+  padding: 6px 9px;
+  font-size: 10px;
+}
+
+.tk-claim:disabled,
+.tk-mini-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tk-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 92px;
+  z-index: 20;
+  transform: translateX(-50%);
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(4, 10, 22, 0.92);
+  color: #eaf7ff;
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.25);
+  font-weight: 900;
+  max-width: 90vw;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
+@media (max-width: 860px) {
+  .tk-hud {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 420px) {
+  .tk-screen { padding: 14px 14px 96px; }
+  .tk-banner { flex-direction: column; align-items: stretch; }
+  .tk-badge { min-width: unset; width: 100%; height: 44px; border-radius: 14px; }
+}

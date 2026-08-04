@@ -1,0 +1,442 @@
+/* ═══════════════════════════════════════════════════════
+   Expeditions — Premium Visual Pass V1
+   CSS prefix: ex-
+   ═══════════════════════════════════════════════════════ */
+
+.ex-screen {
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 16px 14px 100px;
+  color: #eaf7ff;
+  background: #050711;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ex-bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192, 38, 255, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle, black, transparent 75%);
+  z-index: 0;
+}
+
+/* ── HUD ──────────────────────────────────────────────── */
+.ex-hud {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.ex-kicker { font-size: 10px; letter-spacing: 2px; color: #00f0ff; margin: 0; text-transform: uppercase; }
+.ex-hud h1 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 4px 0 0;
+  background: linear-gradient(90deg, #eaf7ff, #00f0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ex-sub { font-size: 11px; color: #8ea7c7; margin: 4px 0 0; }
+
+.ex-resources { display: flex; gap: 6px; }
+.ex-pill {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+.ex-pill b { color: #00f0ff; margin-right: 4px; }
+
+/* ── Tabs ─────────────────────────────────────────────── */
+.ex-tabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.ex-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(12, 20, 42, 0.9), rgba(8, 14, 28, 0.95));
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 12px;
+  color: #8ea7c7;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.ex-tab:hover { background: rgba(0, 240, 255, 0.08); }
+.ex-tab.active {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: #00f0ff;
+  color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+}
+
+.ex-tab-icon { font-size: 14px; }
+
+.ex-tab-badge {
+  background: rgba(0, 240, 255, 0.3);
+  color: #00f0ff;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.ex-tab-ready {
+  background: rgba(79, 224, 138, 0.3);
+  color: #4fe08a;
+}
+
+/* ── Content ──────────────────────────────────────────── */
+.ex-content { position: relative; z-index: 1; }
+
+.ex-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8ea7c7;
+}
+
+.ex-empty-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+.ex-empty p { font-size: 13px; margin: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   EXPEDITION CARDS — Premium sci-fi style
+   ═══════════════════════════════════════════════════════ */
+.ex-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.ex-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 22, 45, 0.95), rgba(8, 14, 28, 0.98));
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ex-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+  opacity: 0.5;
+}
+
+.ex-card:hover:not(.active) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+.ex-card.active {
+  opacity: 0.5;
+  border-color: rgba(79, 224, 138, 0.3);
+}
+
+.ex-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ex-card-icon { font-size: 28px; }
+
+.ex-card-tier {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.ex-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.ex-card-desc {
+  font-size: 10px;
+  color: #8ea7c7;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.ex-card-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ex-card-time,
+.ex-card-level {
+  font-size: 10px;
+  color: #8ea7c7;
+}
+
+.ex-card-time { color: #00f0ff; font-weight: 600; }
+
+/* ── Reward Chips ─────────────────────────────────────── */
+.ex-card-rewards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.ex-card-reward {
+  font-size: 10px;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: #c0d0e0;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ACTIVE EXPEDITIONS — Glow + progress
+   ═══════════════════════════════════════════════════════ */
+.ex-active-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ex-active-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 22, 45, 0.95), rgba(8, 14, 28, 0.98));
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ex-active-card.ready {
+  border-color: rgba(79, 224, 138, 0.4);
+  background: rgba(79, 224, 138, 0.06);
+  animation: ex-ready-glow 2s ease-in-out infinite;
+}
+
+@keyframes ex-ready-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 224, 138, 0), inset 0 0 20px rgba(79, 224, 138, 0.06); }
+  50% { box-shadow: 0 0 20px 2px rgba(79, 224, 138, 0.15), inset 0 0 24px rgba(79, 224, 138, 0.1); }
+}
+
+.ex-active-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ex-active-icon { font-size: 28px; }
+
+.ex-active-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ex-active-name { font-size: 14px; font-weight: 700; }
+.ex-active-time { font-size: 11px; color: #8ea7c7; }
+.ex-active-card.ready .ex-active-time { color: #4fe08a; font-weight: 600; }
+
+/* ── Progress Bar ─────────────────────────────────────── */
+.ex-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ex-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s linear;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+  position: relative;
+}
+
+.ex-progress-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  border-radius: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HISTORY
+   ═══════════════════════════════════════════════════════ */
+.ex-history {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ex-history-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(12, 20, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.ex-history-icon { font-size: 20px; }
+.ex-history-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.ex-history-name { font-size: 12px; font-weight: 600; }
+.ex-history-rewards { font-size: 10px; color: #8ea7c7; }
+.ex-history-tier { font-size: 9px; letter-spacing: 1px; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════ */
+.ex-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  color: #00f0ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ex-btn:hover:not(:disabled) {
+  background: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 240, 255, 0.15);
+}
+
+.ex-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.ex-btn.collect {
+  background: rgba(79, 224, 138, 0.15);
+  border-color: rgba(79, 224, 138, 0.4);
+  color: #4fe08a;
+  animation: ex-collect-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ex-collect-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 224, 138, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(79, 224, 138, 0.2); }
+}
+
+.ex-btn.collect:hover {
+  background: rgba(79, 224, 138, 0.25);
+}
+
+/* ── Back Button ──────────────────────────────────────── */
+.ex-back-btn {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  background: rgba(12, 20, 42, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  color: #8ea7c7;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+}
+
+.ex-back-btn:hover {
+  background: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+/* ── Toasts ───────────────────────────────────────────── */
+.ex-toasts {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.ex-toast {
+  background: rgba(12, 20, 42, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: #00f0ff;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: ex-toast-in 0.25s ease-out;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.ex-toast.warn { border-color: rgba(255, 80, 80, 0.4); color: #ff5050; }
+
+@keyframes ex-toast-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 420px) {
+  .ex-screen { padding: 12px 12px 100px; }
+  .ex-tabs { gap: 4px; }
+  .ex-tab { padding: 8px 10px; font-size: 11px; }
+  .ex-grid { gap: 8px; }
+  .ex-card { padding: 14px; }
+}

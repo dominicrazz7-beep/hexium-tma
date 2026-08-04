@@ -1,0 +1,348 @@
+/* ═══════════════════════════════════════════════════════
+   Corporation — Screen Styles
+   CSS prefix: corp-
+   ═══════════════════════════════════════════════════════ */
+
+.corp-screen {
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 16px 14px 100px;
+  color: #eaf7ff;
+  background: #050711;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.corp-bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 209, 102, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 209, 102, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle, black, transparent 75%);
+  z-index: 0;
+}
+
+/* ── HUD ──────────────────────────────────────────────── */
+.corp-hud {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.corp-kicker { font-size: 10px; letter-spacing: 2px; color: #ffd166; margin: 0; }
+.corp-hud h1 { font-size: 22px; font-weight: 700; margin: 4px 0 0; }
+.corp-sub { font-size: 11px; color: #8ea7c7; margin: 4px 0 0; }
+
+.corp-resources { display: flex; gap: 6px; }
+.corp-pill {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+.corp-pill b { color: #00f0ff; margin-right: 4px; }
+
+/* ── Content ──────────────────────────────────────────── */
+.corp-content { position: relative; z-index: 1; }
+
+.corp-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8ea7c7;
+}
+
+.corp-empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.corp-empty p { font-size: 13px; margin: 0; }
+
+/* ── Corp Card ────────────────────────────────────────── */
+.corp-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(12, 20, 42, 0.85);
+  border: 1px solid rgba(255, 209, 102, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+
+.corp-card:hover {
+  border-color: rgba(255, 209, 102, 0.35);
+}
+
+.corp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.corp-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(255, 209, 102, 0.1);
+  border: 2px solid rgba(255, 209, 102, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.corp-card-info { flex: 1; }
+
+.corp-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.corp-card-level {
+  font-size: 11px;
+  color: #ffd166;
+  font-weight: 600;
+}
+
+/* ── XP Bar ───────────────────────────────────────────── */
+.corp-xp-section { margin-bottom: 16px; }
+
+.corp-xp-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #8ea7c7;
+  margin-bottom: 4px;
+}
+
+.corp-xp-bar {
+  height: 8px;
+  background: rgba(12, 20, 42, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.corp-xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd166, #ffaa33);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* ── Bonuses ──────────────────────────────────────────── */
+.corp-bonuses {
+  background: rgba(12, 20, 42, 0.6);
+  border: 1px solid rgba(255, 209, 102, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.corp-bonuses h3 {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #8ea7c7;
+  margin: 0 0 8px;
+}
+
+.corp-bonus-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.corp-bonus-tag {
+  font-size: 11px;
+  background: rgba(255, 209, 102, 0.1);
+  border: 1px solid rgba(255, 209, 102, 0.2);
+  border-radius: 8px;
+  padding: 4px 10px;
+  color: #ffd166;
+  font-weight: 500;
+}
+
+/* ── Donation ─────────────────────────────────────────── */
+.corp-donation {
+  position: relative;
+  z-index: 1;
+  background: rgba(12, 20, 42, 0.6);
+  border: 1px solid rgba(255, 209, 102, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.corp-donation h3 {
+  font-size: 12px;
+  color: #8ea7c7;
+  margin: 0 0 8px;
+}
+
+.corp-donation-info {
+  font-size: 11px;
+  color: #8ea7c7;
+  margin-bottom: 12px;
+}
+
+.corp-donation-amount {
+  color: #ffd166;
+  font-weight: 700;
+}
+
+.corp-btn-donate {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  border-radius: 10px;
+  color: #ffd166;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.corp-btn-donate:hover:not(:disabled) {
+  background: rgba(255, 209, 102, 0.2);
+  border-color: #ffd166;
+}
+
+.corp-btn-donate:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Members ──────────────────────────────────────────── */
+.corp-members {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.corp-members h3 {
+  font-size: 12px;
+  color: #8ea7c7;
+  margin: 0 0 8px;
+}
+
+.corp-member-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+}
+
+.corp-member {
+  background: rgba(12, 20, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.corp-member-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.corp-member-name {
+  font-size: 10px;
+  color: #8ea7c7;
+}
+
+/* ── Leave Button ─────────────────────────────────────── */
+.corp-btn-leave {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  background: rgba(255, 80, 80, 0.08);
+  border: 1px solid rgba(255, 80, 80, 0.2);
+  border-radius: 12px;
+  padding: 12px;
+  color: #ff5050;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.corp-btn-leave:hover {
+  background: rgba(255, 80, 80, 0.12);
+}
+
+/* ── Back Button ──────────────────────────────────────── */
+.corp-back-btn {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  background: rgba(12, 20, 42, 0.8);
+  border: 1px solid rgba(255, 209, 102, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  color: #8ea7c7;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.corp-back-btn:hover {
+  background: rgba(255, 209, 102, 0.08);
+  color: #ffd166;
+}
+
+/* ── Toasts ───────────────────────────────────────────── */
+.corp-toasts {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.corp-toast {
+  background: rgba(12, 20, 42, 0.95);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 12px;
+  color: #ffd166;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: corp-toast-in 0.25s ease-out;
+  text-align: center;
+}
+
+.corp-toast.warn {
+  border-color: rgba(255, 80, 80, 0.4);
+  color: #ff5050;
+}
+
+@keyframes corp-toast-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 420px) {
+  .corp-hud { flex-direction: column; gap: 8px; }
+  .corp-card-header { flex-direction: column; text-align: center; }
+  .corp-card-info { text-align: center; }
+}

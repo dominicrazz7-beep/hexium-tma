@@ -1,0 +1,49 @@
+/* ═══════════════════════════════════════════════════════
+   StatusGrid — Premium stat cards
+   ═══════════════════════════════════════════════════════ */
+
+.hx-status-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hx-status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  border-radius: 12px;
+  padding: 8px 10px;
+  background: linear-gradient(135deg, rgba(12, 20, 42, 0.85), rgba(8, 14, 28, 0.9));
+  transition: all 0.2s;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.hx-status-card:hover {
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+.hx-status-card b {
+  color: var(--hex-cyan, #00f0ff);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hx-status-card span {
+  color: #c0d0e0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hx-status-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .hx-status-grid { gap: 6px; }
+  .hx-status-card { padding: 6px 8px; }
+}

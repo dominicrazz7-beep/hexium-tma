@@ -1,0 +1,147 @@
+/* ═══ UpgradePanel ═══ */
+
+.mr-upgrades {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+}
+
+.mr-upgrades-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #c0d8f0;
+  letter-spacing: 0.04em;
+}
+
+.mr-upgrades-icon {
+  font-size: 18px;
+}
+
+.mr-upgrades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Upgrade card base ─────────────────────────────── */
+.mr-upgrade-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 240, 255, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 18, 36, 0.88),
+    rgba(5, 10, 22, 0.92)
+  );
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  text-align: left;
+  color: #eaf7ff;
+  font-family: inherit;
+  width: 100%;
+}
+
+.mr-upgrade-card:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* States */
+.mr-upgrade-available {
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.mr-upgrade-available:hover {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.1);
+}
+
+.mr-upgrade-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mr-upgrade-maxed {
+  border-color: rgba(0, 255, 136, 0.25);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 50, 30, 0.3),
+    rgba(5, 10, 22, 0.92)
+  );
+  cursor: default;
+}
+
+/* ── Layout ────────────────────────────────────────── */
+.mr-upgrade-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mr-upgrade-emoji {
+  font-size: 26px;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.mr-upgrade-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mr-upgrade-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mr-upgrade-desc {
+  font-size: 11px;
+  color: #6b8aaa;
+}
+
+.mr-upgrade-level {
+  font-size: 12px;
+  font-weight: 700;
+  color: #00f0ff;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.mr-upgrade-maxed .mr-upgrade-level {
+  color: #00ff88;
+}
+
+.mr-upgrade-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 48px;
+  font-size: 12px;
+}
+
+.mr-upgrade-value {
+  color: #6b8aaa;
+}
+
+.mr-upgrade-cost {
+  font-weight: 700;
+  color: #f7d26a;
+}
+
+.mr-upgrade-locked .mr-upgrade-cost {
+  color: #ff6b6b;
+}
